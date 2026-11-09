@@ -1,0 +1,62 @@
+{
+  "title": "Pad Screensaver",
+  "children": [
+    {
+      "title": "Overview",
+      "lines": [
+        "Visual only. While",
+        "this screen is open",
+        "the 32 pads play an",
+        "animation, and a new",
+        "one starts every",
+        "INTERVAL seconds.",
+        "",
+        "MIDI passes through",
+        "unchanged. Close the",
+        "screen and the pads",
+        "are Move's again."
+      ]
+    },
+    {
+      "title": "Knobs",
+      "lines": [
+        "1  (unused)",
+        "2  INTERVAL 10-180 s",
+        "   applies from the",
+        "   next change",
+        "3  BRIGHTNESS",
+        "4  SPEED 25-300 %",
+        "5  MODE",
+        "   RANDOM: never the",
+        "   same one twice",
+        "   SEQUENTIAL: 1-10"
+      ]
+    },
+    {
+      "title": "Animations",
+      "lines": [
+        "01 Plasma Flow",
+        "02 Knight Rider",
+        "03 Matrix Rain",
+        "04 Fire",
+        "05 Wave Interference",
+        "06 Digital Glitch",
+        "07 Particle Snake",
+        "08 Color Gradient",
+        "09 Cellular Automata",
+        "10 Dual Scanner"
+      ]
+    },
+    {
+      "title": "Pads",
+      "lines": [
+        "While this screen is",
+        "open the pads are a",
+        "display: pressing",
+        "one plays nothing.",
+        "On a Move track they",
+        "work as normal."
+      ]
+    }
+  ]
+}
