@@ -19,7 +19,7 @@ mkdir -p "$OUT"
   -fvisibility=hidden -I"$API" "$MODULE/dsp/pad_screensaver.c" -o "$OUT/dsp.so"
 if [[ "${1:-arm64}" == arm64 ]]; then
   python3 "$MODULE/scripts/check_abi.py" "$OUT/dsp.so"
-  for f in module.json ui_chain.js ui_core.mjs anims.mjs palette.mjs help.json README.md LICENSE THIRD_PARTY_LICENSES.md; do
+  for f in module.json ui_chain.js ui_core.mjs anims.mjs palette.mjs help.json README.md README.ja.md LICENSE THIRD_PARTY_LICENSES.md; do
     cp "$MODULE/$f" "$OUT/"
   done
   tar -czf "$MODULE/dist/$ID-module.tar.gz" -C "$MODULE/dist" "$ID"

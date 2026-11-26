@@ -1,87 +1,94 @@
 # PAD SCREENSAVER
 
-Ableton Move 上の Schwung で動く **見た目専用の MIDI FX** です。
-チェーンの MIDI FX スロットに入れて、このモジュールの画面を開いている間、
-8 列 × 4 行・32 個のパッドに 10 種類のアニメーションを表示します。
-アニメーションは一定時間ごとに切り替わります。
+**English** | [日本語](README.ja.md)
 
-MIDI には一切手を加えません。届いたメッセージはそのまま次（シンセ）へ流れ、
-自分から音やノート、CC を出すこともありません。BPM やトランスポートとも無関係で、
-再生を止めていても動きます。
+A **visual-only MIDI FX** for Schwung on Ableton Move. Put it in a chain's
+MIDI FX slot, and while this module's screen is open it shows 10 kinds of
+animation on the 32 pads (8 columns × 4 rows). The animation changes at a set
+interval.
 
-## 表示される条件
+It does not touch MIDI at all. Every incoming message passes straight on to
+the next stage (the synth), and the module never sends sound, notes or CCs of
+its own. It is independent of BPM and the transport and runs while playback is
+stopped.
 
-- このモジュールの Schwung 画面を開いている間だけ表示します。
-- 画面を閉じる（Back、Menu、トラックへ戻る）と、パッドの色は Move 自身の表示に戻り、
-  パッドも Move の通常の操作に戻ります。
-- 画面を開いている間、パッドは表示専用です。押しても音は出ません
-  （Schwung の `host_pad_block` でパッドを預かっているため）。
+## When it is shown
 
-Schwung の仕組み上、チェーンの MIDI FX は自分の画面を開いている時にしか
-パッドの LED を描けません。そのため、Move の通常画面で無操作になったら自動で始まる、
-という本来の意味のスクリーンセーバーにはなっていません。
+- Only while this module's Schwung screen is open.
+- Close the screen (Back, Menu, going back to a track) and the pad colours
+  return to Move's own display, and the pads return to Move's normal operation.
+- While the screen is open the pads are display-only. Pressing them makes no
+  sound (the pads are held through Schwung's `host_pad_block`).
 
-## ノブ
+Because of how Schwung works, a chain MIDI FX can draw the pad LEDs only while
+its own screen is open. So it is not a screensaver in the usual sense that
+starts by itself when Move's normal screen has been idle.
 
-| ノブ | 名前 | 内容 | 初期値 |
+## Knobs
+
+| Knob | Name | What it does | Default |
 |---|---|---|---|
-| 1 | — | 割り当てなし | — |
-| 2 | INTERVAL | 1 つのアニメーションを表示する秒数。10〜180 秒、1 秒単位。変更は次の切り替えから効きます | 30 秒 |
-| 3 | BRIGHTNESS | パッドの明るさ 5〜100 % | 70 % |
-| 4 | SPEED | アニメーションの速さ 25〜300 %（5 % 単位） | 100 % |
-| 5 | MODE | RANDOM（同じものは連続しない）／ SEQUENTIAL（1→10 の順） | RANDOM |
+| 1 | — | Not assigned | — |
+| 2 | INTERVAL | Seconds each animation is shown. 10–180 s in 1 s steps. A change takes effect from the next switch | 30 s |
+| 3 | BRIGHTNESS | Pad brightness 5–100 % | 70 % |
+| 4 | SPEED | Animation speed 25–300 % (5 % steps) | 100 % |
+| 5 | MODE | RANDOM (never the same one twice in a row) / SEQUENTIAL (1→10 in order) | RANDOM |
 
-ノブに触れている間は、画面にその値（INTERVAL なら秒数）を大きく表示します。
-4 つの設定はスロットの状態として保存され、セットを開き直すと戻ります。
-エフェクトの有効／無効は Schwung 標準のバイパス（Mute + ジョグクリック）を使います。
+While a knob is touched, its value (seconds for INTERVAL) is shown large on the
+screen. The four settings are saved as the slot's state and come back when the
+set is reopened. To switch the effect on and off, use Schwung's standard bypass
+(Mute + jog click).
 
-## アニメーション
+## Animations
 
-| # | 名前 | 内容 |
+| # | Name | What it is |
 |---|---|---|
-| 01 | PLASMA FLOW | 4 つの正弦波を重ねたプラズマ。色相がゆっくり横へ流れる |
-| 02 | KNIGHT RIDER | 赤い光点が左右に往復し、後ろに残像が尾を引く。中央 2 行が明るい光の帯 |
-| 03 | MATRIX RAIN | 緑の光が列ごとに違うタイミングと速さで上から下へ落ちる。先頭は白っぽく明るい |
-| 04 | FIRE | 下段の見えない熱源から熱が上へ伝わり冷えていく。黒→赤→橙→黄 |
-| 05 | WAVE INTERFERENCE | 3 つの波の干渉。青・紫・シアン系 |
-| 06 | DIGITAL GLITCH | 暗いシアンの信号に、赤・白・シアンのブロック、行ずれ、ノイズ。反転は 1 行だけ（全画面の点滅はしない） |
-| 07 | PARTICLE SNAKE | 長さ 7 の光の蛇。壁で向きを変え、ときどき進路を変える。色相が少しずつ変わる |
-| 08 | COLOR GRADIENT | 横へ流れる虹色のグラデーション。行ごとに少し位相がずれる |
-| 09 | CELLULAR AUTOMATA | 8×4 のライフゲーム（上下左右がつながった盤面）。全滅・停止・周期に入ったら新しく種をまく。消えたセルは残像になる |
-| 10 | DUAL SCANNER | 左から赤、右から青の帯が動いて中央で交差し、重なった所が混ざる |
+| 01 | PLASMA FLOW | A plasma of four sine waves on top of each other. The hue drifts slowly sideways |
+| 02 | KNIGHT RIDER | A red dot sweeps left and right with a trail behind it. The middle two rows are a bright band |
+| 03 | MATRIX RAIN | Green light falls from top to bottom, each column with its own timing and speed. The head is bright, almost white |
+| 04 | FIRE | Heat rises from an invisible source below the bottom row and cools as it goes. Black → red → orange → yellow |
+| 05 | WAVE INTERFERENCE | Interference of three waves. Blues, purples and cyans |
+| 06 | DIGITAL GLITCH | A dark cyan signal with red, white and cyan blocks, row shifts and noise. Only one row is ever inverted (no full-screen flashing) |
+| 07 | PARTICLE SNAKE | A snake of light 7 long. It turns at the walls and now and then changes course. The hue shifts little by little |
+| 08 | COLOR GRADIENT | A rainbow gradient flowing sideways, each row slightly out of phase |
+| 09 | CELLULAR AUTOMATA | Game of Life on 8×4 (a board that wraps top/bottom and left/right). When everything dies, stops or falls into a cycle, it seeds again. Dead cells leave an afterglow |
+| 10 | DUAL SCANNER | A red band from the left and a blue band from the right cross in the middle; where they overlap the colours mix |
 
-切り替えのときは 0.75 秒かけて前後のアニメーションの色を混ぜます。最初に表示する
-アニメーションも MODE に従って選びます。
+On a switch, the colours of the outgoing and incoming animations are blended
+over 0.75 s. The first animation shown is also chosen according to MODE.
 
-## 色について
+## About colour
 
-Move のパッドは任意の RGB ではなく、128 色のパレットから選んで光らせます。
-アニメーションは内部で RGB を計算し、それに最も近いパレットの色を選んで送ります。
-そのため明るさの変化やクロスフェードは、パレットの暗めの色を使った近似になります。
-色が変わったパッドにだけ LED を送ります（1 フレーム 40 ms、25 FPS）。
+Move's pads cannot show arbitrary RGB; they light with a colour picked from a
+128-colour palette. The animations compute RGB internally and send the nearest
+palette colour. Brightness changes and crossfades are therefore approximated
+with the palette's darker colours. LEDs are sent only for pads whose colour
+changed (one frame every 40 ms, 25 FPS).
 
-## 動作の仕組み
+## How it works
 
-- `dsp/pad_screensaver.c`：MIDI をそのまま通すだけの DSP。4 つの設定を保持して
-  `state` として保存・復元します。`ui_hierarchy` に空文字を返すので、
-  Schwung は標準のノブ画面の代わりに `ui_chain.js` を開きます。
-- `ui_core.mjs`：画面、ノブ、切り替えのタイマー、LED の送信。
-- `anims.mjs`：10 種類のアニメーション（ハードウェアなしで動く純粋な計算）。
-- `palette.mjs`：RGB からパッドのパレット番号への変換。
+- `dsp/pad_screensaver.c`: a DSP that only passes MIDI through. It holds the
+  four settings and saves/restores them as `state`. It returns an empty string
+  for `ui_hierarchy`, so Schwung opens `ui_chain.js` instead of the standard
+  knob screen.
+- `ui_core.mjs`: the screen, knobs, the switching timer and sending the LEDs.
+- `anims.mjs`: the 10 animations (pure computation that runs without hardware).
+- `palette.mjs`: conversion from RGB to the pads' palette index.
 
-アニメーションはオーディオ処理（SPI コールバック）ではなく、Schwung の画面用
-プロセスで動きます。
+The animations run in Schwung's screen process, not in audio processing (the
+SPI callback).
 
-## ビルドとテスト
+## Building and testing
 
 ```bash
-scripts/test.sh                  # DSP テスト（ASan/UBSan）、アニメーションと UI のテスト、Move 用ビルド
-scripts/build.sh arm64           # dist/pad-screensaver-module.tar.gz を作る
-scripts/install.py http://<Move の IP>:7700   # Schwung Manager 経由でインストール
+scripts/test.sh                  # DSP tests (ASan/UBSan), animation and UI tests, Move build
+scripts/build.sh arm64           # makes dist/pad-screensaver-module.tar.gz
+scripts/install.py http://<Move's IP>:7700   # install through Schwung Manager
 ```
 
-インストール後は Move を再起動してから、MIDI FX の一覧で **Pad Screensaver** を選びます。
+After installing, restart Move, then choose **Pad Screensaver** in the MIDI FX
+list.
 
-## ライセンス
+## Licence
 
-MIT（`LICENSE`）。同梱しているサードパーティのコードは `THIRD_PARTY_LICENSES.md` を参照。
+MIT (`LICENSE`). For the bundled third-party code see `THIRD_PARTY_LICENSES.md`.
